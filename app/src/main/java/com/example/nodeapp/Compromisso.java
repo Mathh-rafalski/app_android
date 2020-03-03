@@ -35,6 +35,7 @@ public class Compromisso extends AppCompatActivity {
         list.setAdapter(adapter);
         try {
             String json = new httpGet().execute().get();
+            System.out.println(json);
             JsonArray arr = new Gson().fromJson(json, JsonArray.class);
             for (int i = 0; i < arr.size(); i++) {
                 Tarefa t = new Tarefa();
@@ -42,7 +43,7 @@ public class Compromisso extends AppCompatActivity {
                 String date = arr.get(i).getAsJsonObject().get("data_hora").getAsString();
                 t.setDataHora(date);
                 System.out.println(t.getDataHora());
-                String tarefa = t.getDescricao() + "\n" + sdf.format(t.getDataHora());
+                String tarefa = t.getDescricao() + "\n" + t.getDataHora();
                 tarefa = tarefa.replace("\"", "");
                 System.out.println(tarefa);
 				

@@ -18,7 +18,7 @@ public class HttpPost extends AsyncTask<String, String, String> {
 
     protected String doInBackground(String... params) {
         try {
-            String response = makePostRequest("http://192.168.12.110/pjson",
+            String response = makePostRequest("http://192.168.0.100/addCompromisso",
                     params[0]);
             return "Success";
         } catch (IOException ex) {
