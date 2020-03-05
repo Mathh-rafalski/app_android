@@ -28,7 +28,7 @@ public class httpGet extends AsyncTask<Void, Void, String> {
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
         try {
-            URL url = new URL("http://192.168.0.100/contas");
+            URL url = new URL("http://192.168.0.100/tarefas");
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
             urlConnection.connect();

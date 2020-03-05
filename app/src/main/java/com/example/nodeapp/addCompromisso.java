@@ -3,9 +3,11 @@ package com.example.nodeapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 
@@ -47,18 +49,21 @@ public class addCompromisso extends AppCompatActivity {
                 if (dataHora.contains("/")) {
                     dataHora = dataHora.replace("/","-");
                 }
-
                 System.out.println(dataHora);
                 Date dat = sdf2.parse(dataHora);
                 System.out.println(dat);
                 t.setDataHora(sdf.format(dat));
 
             }catch (ParseException pe) {
-
+                pe.printStackTrace();
             }
         t.setDescricao(edtDes.getText().toString());
         Gson gson = new Gson();
         String json = gson.toJson(t);
-        new HttpPost().execute(json);
+        String a = String.valueOf(new HttpPost().execute(json));
+        if (a != null) {
+            TextView tx = findViewById(R.id.idSalvo);
+            tx.setText("Salvo");
+        }
     }
 }

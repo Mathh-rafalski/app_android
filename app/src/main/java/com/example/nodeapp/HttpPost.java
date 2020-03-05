@@ -52,6 +52,6 @@ public class HttpPost extends AsyncTask<String, String, String> {
             ex.printStackTrace();
         }
         uc.disconnect();
-        return jsonString.toString();
+        return "Salvo";
     }
 }
